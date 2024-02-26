@@ -37,18 +37,27 @@ class MyFirstPageState extends State<MyFirstPage> {
               //TODO: Replace this Text Widget
               // and build the label and switch here
               // as children of the row.
-              Text('testing 1 2 3 '),
+              ListTile(
+                title: Text('Enable Buttons'),
+                leading: Switch(
+                  value: enabled,
+                  onChanged: (bool value) {
+                    setState(() {
+                      enabled = !enabled;
+                    });
+                  },
+                ),
+              )
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              //TODO: Build the two buttons here 
+              //TODO: Build the two buttons here
               // as children of the row.
-              // For each button use a 
-              // "Visibility Widget" and its child 
+              // For each button use a
+              // "Visibility Widget" and its child
               // will be an "ElevatedButton"
-              
             ],
           ),
           const SizedBox(
@@ -68,7 +77,6 @@ class MyFirstPageState extends State<MyFirstPage> {
                   // a submit button that will show a
                   // snackbar with the "firstName"
                   // if validation is satisfied.
-                  
                 ],
               ),
             ),
