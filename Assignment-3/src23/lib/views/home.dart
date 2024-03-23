@@ -61,8 +61,17 @@ class HomeViewState extends State<HomeView> {
             ),
             Expanded(
               //TODO: Replace this Text child with a ListView.builder
-              child: Text('Hi'),
-            ),
+              child: ListView.builder(
+                itemCount: stockList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    title: Text("Symbol: ${stockList[index]['symbol']}"),
+                    subtitle: Text('Name: ${stockList[index]['name']}'),
+                    trailing: Text('Price: ${stockList[index]['currentPrice'].toString()}'),
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),
@@ -111,7 +120,23 @@ class HomeViewState extends State<HomeView> {
                       //attach them to stockList,
                       //then print all stocks to the console and,
                       //finally call setstate at the end.
-                      
+                      var companyData =
+                          await stockService.getCompanyInfo(symbol);
+                      var stockData = await stockService.getQuote(symbol);
+                      if (companyData != null && stockData != null) {
+                        symbol = companyData['Symbol'];
+                        companyName = companyData['Name'];
+                        price = stockData['Global Quote']['05. price'];
+                        var stock = {
+                          'symbol': symbol,
+                          'name': companyName,
+                          'currentPrice': price
+                        };
+                        await databaseService.insertStock(stock);
+                        stockList = await databaseService.getAllStocksFromDb();
+                        await databaseService.printAllStocksInDbToConsole();
+                        setState(() {});
+                      }
                     } catch (e) {
                       print('HomeView inputStock catch: $e');
                     }
