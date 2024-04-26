@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="google_app_id">1:1035469437089:android:73a4fb8297b2cd4fe3</string>
+    <string name="firebase_database_url">https://dmit2504-serpag-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId">1035469437089</string>
+    <string name="default_web_client_id">337894902146-e4uksm38sne0bqrj6uvkbo4oiu4hvigl.apps.googleusercontent.com</string>
+    <string name="ga_trackingId"></string>
+    <string name="firebase_storage_bucket">dmit2504-serpag.appspot.com</string>
+    <string name="project_id">dmit2504-serpag</string>
+    <string name="google_api_key">AIzaSyC-1G9LlYqC2-A_j25nhzJYHb6EEZzQD8</string>
+    <string name="google_crash_reporting_api_key">AIzaSyC-1G9LlYqC2-A_j25nhzJYHb6EEZzQD8</string>
+</resources>
